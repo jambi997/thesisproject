@@ -1,0 +1,185 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://art/spiderass5.png" type="Texture" id=1]
+[ext_resource path="res://enemies/spiderboss.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 11.8211
+
+[sub_resource type="Animation" id=2]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 6, 10, 11, 12 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damagerange/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("damagerange/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "run"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 1, 2, 3, 4 ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "attack"
+
+[sub_resource type="AnimationNodeAnimation" id=6]
+animation = "idle"
+
+[sub_resource type="AnimationNodeAnimation" id=7]
+animation = "run"
+
+[sub_resource type="AnimationNodeStateMachine" id=8]
+states/attack/node = SubResource( 5 )
+states/attack/position = Vector2( 199, 36 )
+states/idle/node = SubResource( 6 )
+states/idle/position = Vector2( 393, 55 )
+states/run/node = SubResource( 7 )
+states/run/position = Vector2( 462, 127 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=9]
+
+[sub_resource type="CapsuleShape2D" id=10]
+radius = 6.00394
+height = 4.31811
+
+[sub_resource type="CircleShape2D" id=11]
+radius = 236.009
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 1.75468, 4.77801 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 4.10173, 13.7031 )
+
+[node name="spiderboss" type="KinematicBody2D"]
+z_index = 20
+collision_layer = 17
+collision_mask = 17
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+rotation = -1.5708
+texture = ExtResource( 1 )
+hframes = 13
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -14.5, -0.23307 )
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attack = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/run = SubResource( 4 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 8 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 9 )
+
+[node name="fej" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="fej"]
+position = Vector2( 6.55856, 0.350491 )
+shape = SubResource( 10 )
+
+[node name="sense" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 2147483656
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sense"]
+shape = SubResource( 11 )
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="attackrange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackrange"]
+position = Vector2( 17.1175, 0.420921 )
+shape = SubResource( 12 )
+
+[node name="damagerange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damagerange"]
+position = Vector2( 18.7595, -0.117985 )
+shape = SubResource( 13 )
+disabled = true
+
+[node name="Bar" type="ColorRect" parent="."]
+margin_left = -35.25
+margin_top = -1.125
+margin_right = -1.25
+margin_bottom = 0.875
+color = Color( 0.435294, 0.117647, 0.854902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="area_entered" from="fej" to="." method="_on_fej_area_entered"]
+[connection signal="body_entered" from="sense" to="." method="_on_sense_body_entered"]
+[connection signal="body_exited" from="sense" to="." method="_on_sense_body_exited"]
+[connection signal="body_entered" from="attackrange" to="." method="_on_attackrange_body_entered"]
+[connection signal="body_exited" from="attackrange" to="." method="_on_attackrange_body_exited"]
+[connection signal="body_entered" from="damagerange" to="." method="_on_damagerange_body_entered"]

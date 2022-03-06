@@ -1,0 +1,609 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://enemies/lizard.gd" type="Script" id=1]
+[ext_resource path="res://art/lizardboss.png" type="Texture" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 23.9998
+height = 128.0
+
+[sub_resource type="Animation" id=2]
+resource_name = "chill"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("sense/CollisionShape2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "cirlce"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("torzs/fej:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -8.00032, -88 ), Vector2( 7.99968, -88 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("torzs/fej:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -30.0, 30.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("pushzone/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pushzone/CollisionShape2D2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("torzs/lab2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, -56 ), Vector2( -40, -24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("torzs/lab2:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 195.0, 89.9999 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("torzs/lab:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, -24 ), Vector2( 40, -56 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("torzs/lab:rotation_degrees")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 89.9999, -30.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("torzs/lab3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, 24 ), Vector2( -40, 0 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("torzs/lab3:rotation_degrees")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 195.0, 255.0 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("torzs/lab4:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, -9.53674e-07 ), Vector2( 40, 24 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("torzs/lab4:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -105.0, 15.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("torzs/lab6:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -40, 56 ), Vector2( -40, 80 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("torzs/lab6:rotation_degrees")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.1, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -90.0, -195.0 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("torzs/lab5:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 40, 80 ), Vector2( 40, 48 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("torzs/lab5:rotation_degrees")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -89.9999 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("torzs/fej:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, -88 ) ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("torzs/fej:rotation_degrees")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/14/type = "value"
+tracks/14/path = NodePath("torzs/tail:frame")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("sense/CollisionShape2D:disabled")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 1.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath("torzs/tail:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("torzs/fej:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -8, -88 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("torzs/fej:rotation_degrees")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ -30.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Area2D/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("pushzone/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("pushzone/CollisionShape2D2:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="CapsuleShape2D" id=6]
+radius = 520.0
+height = 0.0
+
+[sub_resource type="CapsuleShape2D" id=7]
+radius = 16.0
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 8.0
+height = 60.0
+
+[sub_resource type="CircleShape2D" id=9]
+radius = 1608.32
+
+[sub_resource type="CircleShape2D" id=10]
+radius = 232.0
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 32, 24 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 40, 24 )
+
+[sub_resource type="CapsuleShape2D" id=13]
+radius = 40.0
+height = 112.0
+
+[node name="lizard" type="KinematicBody2D"]
+z_index = 9
+collision_layer = 16403
+collision_mask = 16400
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( -24, 0 )
+rotation = 1.5708
+scale = Vector2( 1.14, 1 )
+z_index = 20
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/chill = SubResource( 2 )
+anims/cirlce = SubResource( 3 )
+anims/run = SubResource( 4 )
+anims/slash = SubResource( 5 )
+
+[node name="torzs" type="Sprite" parent="."]
+rotation = 1.5708
+z_index = 2
+texture = ExtResource( 2 )
+hframes = 8
+frame = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="fej" type="Sprite" parent="torzs"]
+position = Vector2( -8, -88 )
+rotation = -0.523599
+z_index = 3
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1623.83, 143.252, 73, 67 )
+
+[node name="mouth" type="Position2D" parent="torzs/fej"]
+position = Vector2( 0, -40 )
+rotation = -1.5708
+
+[node name="lab5" type="Sprite" parent="torzs"]
+position = Vector2( 40, 69.3333 )
+rotation = -0.523598
+scale = Vector2( 1, -1 )
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="lab6" type="Sprite" parent="torzs"]
+position = Vector2( -40, 62 )
+rotation = -2.02895
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="tail" type="Sprite" parent="torzs"]
+position = Vector2( 0, 208 )
+z_index = -1
+texture = ExtResource( 2 )
+hframes = 2
+frame = 1
+region_enabled = true
+region_rect = Rect2( 1531, 412.617, 1035.18, 108.558 )
+
+[node name="lab4" type="Sprite" parent="torzs"]
+position = Vector2( 40, 8 )
+rotation = -1.13446
+scale = Vector2( 1, -1 )
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="lab3" type="Sprite" parent="torzs"]
+position = Vector2( -40, 18 )
+rotation = 3.66519
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="lab2" type="Sprite" parent="torzs"]
+position = Vector2( -40, -48 )
+rotation = 2.94524
+scale = Vector2( 1, -1 )
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="lab" type="Sprite" parent="torzs"]
+position = Vector2( 40, -34.6667 )
+rotation = 0.872664
+z_index = -1
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 1856.08, 157.074, 94.6005, 71.8484 )
+
+[node name="Bar" type="ColorRect" parent="torzs"]
+margin_left = -1.0
+margin_top = -32.0
+margin_right = 1.0
+margin_bottom = 88.0
+color = Color( 0.329412, 0.996078, 0.0588235, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="sense" type="Area2D" parent="."]
+visible = false
+collision_layer = 2147483656
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sense"]
+shape = SubResource( 6 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 72, 0 )
+rotation = 1.5708
+z_index = 30
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2( -144, 0 )
+rotation = 1.5708
+z_index = 40
+shape = SubResource( 8 )
+
+[node name="shootsec" type="Timer" parent="."]
+wait_time = 0.013
+
+[node name="shoottimer" type="Timer" parent="."]
+wait_time = 0.1
+
+[node name="bullet" type="Node" parent="."]
+
+[node name="statetimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="swipetimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sense2" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 2147483656
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sense2"]
+shape = SubResource( 9 )
+
+[node name="swipe" type="Area2D" parent="."]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="swipe"]
+shape = SubResource( 10 )
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 9
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -216, 24 )
+shape = SubResource( 11 )
+
+[node name="runtimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="pushzone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pushzone"]
+position = Vector2( -144, 0 )
+shape = SubResource( 12 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pushzone"]
+position = Vector2( -24, 0 )
+rotation = 1.5708
+shape = SubResource( 13 )
+[connection signal="body_entered" from="sense" to="." method="_on_sense_body_entered"]
+[connection signal="body_exited" from="sense" to="." method="_on_sense_body_exited"]
+[connection signal="timeout" from="shootsec" to="." method="_on_shootsec_timeout"]
+[connection signal="timeout" from="shoottimer" to="." method="_on_shoottimer_timeout"]
+[connection signal="timeout" from="statetimer" to="." method="_on_statetimer_timeout"]
+[connection signal="timeout" from="swipetimer" to="." method="_on_swipetimer_timeout"]
+[connection signal="body_entered" from="sense2" to="." method="_on_sense2_body_entered"]
+[connection signal="body_exited" from="sense2" to="." method="_on_sense2_body_exited"]
+[connection signal="body_entered" from="swipe" to="." method="_on_swipe_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="timeout" from="runtimer" to="." method="_on_runtimer_timeout"]
+[connection signal="body_entered" from="pushzone" to="." method="_on_pushzone_body_entered"]
