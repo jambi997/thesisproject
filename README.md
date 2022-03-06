@@ -1,6 +1,7 @@
 # thesisproject
-this is the game I made for my thesis in university and fell in love with programming with it
- you can try it out:https://jambi997.github.io/thesisproject/
+this is the game I made for my thesis in university and fell in love with programming with it. Development didnt continue after I graduated, and it was my first independent project,so expect code duplication, poor naming and weird, inneficient solutions, but its a good reminder of where I started.
+ you can try it out:
+https://jambi997.github.io/thesisproject/
 
 in the game you move with wasd, attack with left click and do a special attack with right click, and heal with q. and do a dodge with the space button.
 
@@ -10,4 +11,6 @@ At the end of each dungeon there is a ladder that takes the player to one of 2 b
 The game doesnt have a save function, every time the player dies the game resets.
 
 You can play the game as it was meant to be played by clicking on the start gomb, or acces to the two bosses immediatly by clicking on the dragon or lizard buttons.
+
+
  
